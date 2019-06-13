@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Микроблог</title>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+
+</head>
+<body>
+
+    <form action="create" method="POST" class="post-form">
+        {% csrf_token %}
+        <p>
+            <label>Введите сообщение</label><br>
+            <textarea  name="textMessage"></textarea>
+        </p>
+        <button type="submit" class="btn btn-primary">ОТПРАВИТЬ</button>
+    </form>
+    <br/>
+    <h3>Сообщения</h3>
+
+    {% for val in object_list %}
+        <div class="textMessage">
+            {{ val.textMessage }}</div>
+        <br/>
+    {% endfor %}
+</body>
+</html>
