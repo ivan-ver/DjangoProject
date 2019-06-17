@@ -7,5 +7,5 @@ from main.views import create
 
 urlpatterns = [
     url(r'^$', ListView.as_view(queryset=Messages.objects.all(), template_name="mainPage.html")),
-    path('create', create)
+    path('create', create),
 ]
